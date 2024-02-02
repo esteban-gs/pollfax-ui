@@ -13,7 +13,7 @@ const BillCard = (props: Props) => {
     originChamber,
     title,
     type,
-    updateDateIncludingText,
+    updateDateIncludingTextString,
     latestActionText,
     url,
     yes,
@@ -49,16 +49,7 @@ const BillCard = (props: Props) => {
           <p>
             <strong>Last Update</strong> - {latestActionText}
           </p>
-          {/* // TODO: need to coerce into date */}
-          <p>
-            (
-            {updateDateIncludingText.toLocaleString("en-US", {
-              year: "numeric",
-              month: "numeric",
-              day: "numeric",
-            })}
-            )
-          </p>
+          <p>({updateDateIncludingTextString})</p>
         </div>
       </Card>
     </div>

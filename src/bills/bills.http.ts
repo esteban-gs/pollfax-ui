@@ -8,7 +8,7 @@ export const fetchBills = async () => {
   let response, parsed;
   try {
     response = await fetch(billsApi);
-    parsed = await response!.json();
+    parsed = (await response!.json()) satisfies Bill[];
   } catch (error) {
     console.error("Error fetching bills");
     messages$.toast.set(null);
@@ -19,5 +19,5 @@ export const fetchBills = async () => {
     });
   }
 
-  return parsed ?? ([] satisfies Bill[]);
+  return parsed ?? ([]satisfies Bill[]);
 };

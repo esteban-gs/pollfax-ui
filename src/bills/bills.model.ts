@@ -1,4 +1,5 @@
 export interface Bill {
+  id: number;
   number: string;
   originChamber: string;
   title: string;
@@ -8,7 +9,6 @@ export interface Bill {
   updateDateIncludingText: Date;
   updateDateIncludingTextString?: string;
 }
-
 
 export interface BillsGetResponse {
   bills: Bill[];

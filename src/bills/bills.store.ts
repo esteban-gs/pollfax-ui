@@ -6,6 +6,15 @@ import { event } from "@legendapp/state";
 export const loadBills = event();
 loadBills.on(async () => {
   const bills = await fetchBills();
+  bills.forEach((bill: Bill, index: number) => {
+    const _updateDateIncludingText = new Date(bill.updateDateIncludingText);
+    const dateStr = _updateDateIncludingText.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+    bill.updateDateIncludingTextString = dateStr;
+  }, bills);
   state$.bills.set(bills);
 });
 
